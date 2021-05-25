@@ -1,0 +1,14 @@
+.contactFilter {
+    margin: 40px 0;
+    input{
+        background-color: transparent;
+        color: white;
+        border: none;
+        width: 200px;
+        border-bottom: 1px solid grey;
+        &:focus{
+            // border: none;
+            outline: none;
+        }
+    }
+    }

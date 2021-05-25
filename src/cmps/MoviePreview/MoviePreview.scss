@@ -1,0 +1,20 @@
+@import '../../style/setup/variables';
+
+.moviePreview {
+    background-color: $clr2;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    // width: 700px;
+    // height: 100%;
+    padding-bottom: 20px;
+    h2{
+        font-size: 1rem;
+    }
+    img{
+        width: 150px;
+        height: 225px;
+        margin-bottom: 20px;
+        // height: 100%;
+    }
+}

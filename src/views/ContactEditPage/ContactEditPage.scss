@@ -1,0 +1,25 @@
+.contact-edit {
+    width: 300px;
+    margin: 30px auto;
+    text-align: left;
+    label{
+        text-transform: uppercase;
+        color: rgb(103, 103, 103);
+
+    }
+    input{
+        margin-bottom: 20px;
+        // padding: 0 20px;
+    }
+    a{
+        width: 100px;
+        background-color: transparent;
+        color: rgb(77, 164, 60);
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+
+@import '../../style/setup/mixins';
+.movieList {
+  border-radius: 5px;
+  gap: 10px;
+  width: 100%;
+  // height: 400px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+
+  @include scroll;
+
+  .loader {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    img {
+      width: 150px;
+    }
+  }
+}

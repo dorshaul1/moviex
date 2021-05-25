@@ -1,0 +1,56 @@
+@import "../../style/setup/variables";
+
+.homePage {
+    text-align: left;
+    .homePage-container {
+        width: 100%;
+        .diff-color {
+            color: $primary-clr;
+        }
+        
+        .movie-font {
+            font-family: movie;
+            font-weight: 72;
+        }
+        .hero-container {
+            width: 100%;
+            height: 90vh;
+            background: url(../../assets/images/background/wave.svg) no-repeat;
+            background-position: bottom;
+            background-size: 100%;
+            .hero-text-container {
+                width: 500px;
+                margin-right: 50px;
+                // width: 100%;
+            }
+            h2 {
+                font-size: 50px;
+            }
+            img {
+                width: 350px;
+            }
+        }
+
+        .lets-start-btn {
+            width: 250px;
+            margin-top: 60px;
+            padding: 12px;
+            font-size: 20px;
+            color: $primary-clr;
+            border: 2px solid $primary-clr;
+            background-color: transparent;
+            border-radius: 30px;
+            cursor: pointer;
+            &:hover {
+                color: $primary-clr-hover;
+                border: 2px solid $primary-clr-hover;
+            }
+        }
+    }
+
+    .more-details-container {
+        height: 100vh;
+        width: 100%;
+        background-color: $clr2;
+    }
+}

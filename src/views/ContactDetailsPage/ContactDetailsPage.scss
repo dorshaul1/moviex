@@ -1,0 +1,61 @@
+.contactDetailsPage {
+    color: rgba(240, 240, 240, 0.952);
+
+    .details-container{
+        background-color: rgba(119, 119, 119, 0.363);
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+        padding: 30px;
+        position: relative;
+        .back{
+            position: absolute;
+            right: 20px;
+            top: 0;
+            font-size: 50px;
+            color: rgb(39, 39, 39);
+        }
+
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+.contact-info{
+    text-align: left;
+    h2{
+        margin-bottom: 20px;
+    }
+    h4{
+        margin-bottom: 5px;
+        color: rgb(134, 134, 134);
+    }
+
+}
+.btns-container{
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    .delete-btn{
+        background-color: transparent;
+        color: rgb(204, 80, 80);
+        border: none;
+        font-size: 20px;
+    }
+    .edit-btn{
+        background-color: transparent;
+        color: rgb(110, 110, 110);
+        border: none;
+        font-size: 20px;
+    }
+    &>*{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+}   
+}
