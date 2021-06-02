@@ -22,8 +22,8 @@ export const SearchMovie = () => {
     }
     return (
         <div className="searchMovie flex">
-            <form onSubmit={onSearchMovie}>
-                <input className="main-input" placeholder="Search movie" type="text" id="name" value={newMovie.name} onChange={handleChange} name="movie" />
+            <form onSubmit={onSearchMovie} autoComplete="off">
+                <input autoComplete="off" className="main-input" placeholder="Search movie" type="text" id="name" value={newMovie.name} onChange={handleChange} name="movie" />
                 <button className="search-btn" >Search</button>
             </form>
         </div>
