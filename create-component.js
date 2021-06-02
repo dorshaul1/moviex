@@ -14,9 +14,9 @@ const validOptions = {
 }
 
 const defaultOptions = {
-    dir: 'components',
+    dir: 'cmps',
     style: 'scss',
-    cmpType: 'class'
+    cmpType: 'function'
 }
 
 const cleanOption = (op) => {

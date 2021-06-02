@@ -20,15 +20,33 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(128, 128, 128, 0.281);
   border-radius: 20px;
 }
-
-input {
-  margin-top: 15px;
-  margin-bottom: 30px;
-  background-color: transparent;
-  color: white;
-  border: none;
-  border-bottom: 1px solid grey;
-  &:focus {
-    outline: none;
+.loader {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  img {
+    width: 150px;
   }
 }
+button{
+  background-color: $primary-clr;
+  color: white;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    background-color: $primary-clr-hover;
+  }
+}
+// input {
+//   margin-top: 15px;
+//   margin-bottom: 30px;
+//   background-color: transparent;
+//   color: white;
+//   border: none;
+//   border-bottom: 1px solid grey;
+//   &:focus {
+//     outline: none;
+//   }
+// }

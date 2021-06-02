@@ -1,31 +1,36 @@
 
 
-import { useEffect, useState } from 'react'
-import movieService from '../../services/movieService'
+import { useEffect } from 'react'
 import './MovieDetail.scss'
-import defaultImg from '../../assets/images/noPhoto.png'
+import defaultImg from '../../assets/images/not-found.png'
 import ReactPlayer from 'react-player'
 import { MovieList } from '../MovieList/MovieList'
+import { useDispatch, useSelector } from 'react-redux'
+import { getMovieById } from '../../store/actions/movieAction'
+import loader from '../../assets/images/Spinner.svg'
 
 
 export const MovieDetail = (props) => {
-    const [movie, setMovie] = useState(null)
-    useEffect(async () => {
-        const movie = await movieService.getCurrMovieById(props.match.params.movieId)
-        setMovie(movie)
-        console.log('movie:', movie)
+    const state = useSelector(state => state.movieReducer)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getMovieById(props.match.params.movieId))
+        console.log('movie:', state.currMovie)
         window.scrollTo(0, 0)
         return () => {
+            dispatch(getMovieById(props.match.params.movieId, true))
+
         }
     }, [props.match.params.movieId])
 
     const findJobType = (job) => {
         return movie.crew.filter((c) => c.job === job)
     }
-
+    const movie = state.currMovie
     return (
         <div className="movieDetail flex column align-center">
-            {movie && <div className="movie-detail-container ">
+            {movie ? <div className="movie-detail-container ">
                 <div className="movie-title-container" style={{ "backgroundImage": `url(${movie.backDrop})` }}>
                     <div className="screen flex space-between align-center">
 
@@ -93,7 +98,7 @@ export const MovieDetail = (props) => {
                 <div className="similiar-movies">
                     {< MovieList movies={movie.similarMovies} />}
                 </div>
-            </div>}
+            </div> : <div className="loader flex center"><img src={loader} /></div>}
         </div>
     )
 }

@@ -1,0 +1,39 @@
+@import "../../style/setup/variables";
+
+.searchResults {
+    padding: 30px 80px;
+    .movie-results-container {
+        .movie-preview {
+            cursor: pointer;
+            height: 180px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: $clr2;
+            border-radius: 5px;
+            img {
+                height: 100%;
+                margin-right: 30px;
+                border-radius: 5px;
+                &.default-image {
+                    width: 106px;
+                }
+            }
+            .movie-details{
+                text-align: left;
+                height: 100%;
+                h2{
+                    margin-bottom: 10px;
+                }
+                p{
+                    width: 80%;
+                    font-weight: 300;
+                    // justify-self: flex-end;
+                }
+                .date{
+                    font-weight: 200;
+                    color: $clr3;
+                }
+            }
+        }
+    }
+}
