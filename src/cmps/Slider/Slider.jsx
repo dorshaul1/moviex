@@ -12,7 +12,7 @@ export const Slider = ({ movies }) => {
     let history = useHistory();
 
     const handleClick = () => {
-        history.push(`/details/${randMovie.id}`)
+        history.push(`/movie/${randMovie.id}`)
     }
     let lastRandIdx = null
 

@@ -11,6 +11,7 @@ export default {
   getCurrMovieById,
   getUpcomingMovie,
   getMoviesBySearch,
+  getActorDetails
   // getMovieImages
 }
 
@@ -96,25 +97,26 @@ function filter(term) {
   })
 }
 
-function getMovieByName(name) {
-  return httpService.get('movie/searchMovie/' + name)
+async function getMovieByName(name) {
+  return await httpService.get('movie/searchMovie/' + name)
 }
 
-function getPopularMovie() {
-  // console.log('sdcsdc');
-  return httpService.get('movie/getPopularMovies/')
+async function getPopularMovie() {
+  return await httpService.get('movie/getPopularMovies/')
 }
-function getUpcomingMovie() {
-  // console.log(httpService.get('movie/getUpcomingMovies/'))
-  return httpService.get('movie/getUpcomingMovies/')
+async function getUpcomingMovie() {
+  return await httpService.get('movie/getUpcomingMovies/')
 }
 
-function getCurrMovieById(id) {
-  return httpService.get('movie/getMovie/' + id)
+async function getCurrMovieById(id) {
+  return await httpService.get('movie/getMovie/' + id)
 }
 
-function getMoviesBySearch(movie) {
-  return httpService.get('movie/searchMovie/' + movie)
+async function getMoviesBySearch(movie) {
+  return await httpService.get('movie/searchMovie/' + movie)
+}
+async function getActorDetails(actorId) {
+  return await httpService.get('movie/getActor/' + actorId)
 }
 // function getMovieImages(movieId) {
   // return httpService.get('movie/getMovieImages/' + movieId)

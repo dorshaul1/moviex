@@ -8,24 +8,29 @@ import { MovieList } from '../MovieList/MovieList'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovieById } from '../../store/actions/movieAction'
 import loader from '../../assets/images/Spinner.svg'
+import { useHistory } from 'react-router'
 
 
 export const MovieDetail = (props) => {
     const state = useSelector(state => state.movieReducer)
     const dispatch = useDispatch()
+    let history = useHistory();
 
     useEffect(() => {
         dispatch(getMovieById(props.match.params.movieId))
-        console.log('movie:', state.currMovie)
         window.scrollTo(0, 0)
         return () => {
-            dispatch(getMovieById(props.match.params.movieId, true))
-
+            dispatch(getMovieById())
         }
     }, [props.match.params.movieId])
 
     const findJobType = (job) => {
         return movie.crew.filter((c) => c.job === job)
+    }
+
+    const onClickActor = (actorId) => {
+        history.push(`/actor/${actorId}`)
+
     }
     const movie = state.currMovie
     return (
@@ -36,9 +41,11 @@ export const MovieDetail = (props) => {
 
                         <img className="movieImage" src={movie.image} alt="" />
                         <div className="movie-information-container">
-                            <h1 className="movie-titie">{movie.title}<span className="movie-date">({movie.release_date.split('-')[0]})</span></h1>
-                            <div className="subtitle flex">
-                                {movie.genres.map((genre) => <h5 className="genre" key={genre.id}>{genre.name}</h5>)}
+                            <div className="movie-header">
+                                <h1 className="movie-titie">{movie.title}<span className="movie-date">({movie.release_date.split('-')[0]})</span></h1>
+                                <div className="subtitle flex">
+                                    {movie.genres.map((genre) => <h5 className="genre" key={genre.id}>{genre.name}</h5>)}
+                                </div>
                             </div>
                             <h2>Overview</h2>
                             <p className="overview">{movie.overview}</p>
@@ -68,8 +75,8 @@ export const MovieDetail = (props) => {
                     <h1 className="title">Cast</h1>
                     <div className="actors-container flex ">
                         {movie.actors.map((actor) =>
-                            <div key={actor.id} className="actor-preview flex column ">
-                                {actor.profile_path ? <img src={actor.image} /> : <img className="default-image" src={defaultImg} />}
+                            <div key={actor.id} onClick={() => onClickActor(actor.id)} className="actor-preview flex column ">
+                                {actor.profile_path ? <img src={actor.image} alt=""/> : <img className="default-image" src={defaultImg} alt=""/>}
                                 <div className="actor-information">
 
                                     <h2>{actor.character}</h2>
@@ -78,24 +85,26 @@ export const MovieDetail = (props) => {
                             </div>
                         )}
                     </div>
-                    <div className="movie-more-information-container flex column">
+                    {console.log(movie.production_companies)}
+                    <div className="movie-production flex column">
                         <h1 className="title">Production </h1>
                         {movie.production_companies.map((company) => {
                             return <div key={company.id} className="company flex column">
-                                {/* <h3>{company.name}</h3> */}
-                                <img src={company.logo_path} />
+                                {company.logo_path ? <img src={company.logo_path} alt=""/> : <h6>{company.name}</h6>}
                             </div>
                         })}
                     </div>
                 </div>
+                {movie.videos[0] && <div className="media-container flex column center">
 
-                <h1 className="title">Media</h1>
-                <div className="media">
-                    <ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${movie.videos[0].key}`} />
-                </div>
+                    <h1 className="title">Media</h1>
+                    <div className="media flex center">
+                        <ReactPlayer width="100%" className="trailer" controls={true} url={`https://www.youtube.com/watch?v=${movie.videos[0].key}`} />
+                    </div>
+                </div>}
 
-                <h1 className="title">Similiar Movies</h1>
                 <div className="similiar-movies">
+                    <h1 className="title">Similiar Movies</h1>
                     {< MovieList movies={movie.similarMovies} />}
                 </div>
             </div> : <div className="loader flex center"><img src={loader} /></div>}

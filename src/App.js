@@ -2,6 +2,7 @@ import {HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { AppHeader } from './cmps/AppHeader/AppHeader';
 import { MovieDetail } from './cmps/MovieDetail/MovieDetail';
 import './style/App.scss';
+import { ActorDetail } from './views/ActorDetail/ActorDetail';
 // import { ContactDetailsPage } from './views/ContactDetailsPage/ContactDetailsPage';
 // import { ContactEditPage } from './views/ContactEditPage/ContactEditPage';
 // import { ContactPage } from './views/ContactPage/ContactPage';
@@ -19,7 +20,8 @@ function App() {
           {/* <Route component={ContactEditPage} path="/edit/:contactId?" /> */}
           {/* <Route component={ContactDetailsPage} path="/detalis/:contactId" /> */}
           <Route component={SearchResults} path="/search/:search" />
-          <Route component={MovieDetail} path="/details/:movieId" />
+          <Route component={MovieDetail} path="/movie/:movieId" />
+          <Route component={ActorDetail} path="/actor/:actorId" />
           <Route component={Explore} path="/explore" />
           {/* <Route component={ContactPage} path="/contact" /> */}
           <Route component={HomePage} path="/" />

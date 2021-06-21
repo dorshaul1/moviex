@@ -1,38 +1,89 @@
+@import "../../style//setup/variables";
+
 .app-header {
     background-color: #292933;
     padding-bottom: 10px;
     padding: 0 80px;
     height: 10vh;
     color: rgba(240, 240, 240, 0.952);
-    // position: fixed;
-    
-    
-    .logo{
-        img{
+    @media screen and (max-width: $tablet-screen) {
+        padding: 0 20px;
+    }
+
+    .logo {
+        img {
             width: 30px;
-        margin-right: 10PX;
+            margin-right: 10px;
         }
-        h1{
+        h1 {
             text-transform: uppercase;
             font-size: 1.5rem;
             color: rgba(240, 240, 240, 0.952);
             font-family: movie;
             font-weight: 72;
-            // font-size: 50;
-
         }
     }
-    
-    ul{
-        margin: 0;
-        >*{
-            text-decoration: none;
-            color: white;
-            opacity: 0.7;
-            margin-left: 50px;
+    .menu-screen {
+        position: fixed;
+        z-index: 74;
+        background-color: rgba(0, 0, 0, 0.363);
+        height: 90vh;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+    }
+    .menu-btn {
+        display: none;
+        cursor: pointer;
+        @media screen and (max-width: $mobile-screen) {
+            display: block;
+            margin-top: 8px;
         }
-        .active{
-            opacity: 1
+    }
+    nav {
+        @media screen and (max-width: $mobile-screen) {
+            height: 90vh;
+            background-color: $clr1;
+            width: 0;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: 75;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.6s;
+            &.menu-open {
+                width: 200px;
+            }
+        }
+        ul {
+            margin: 0;
+            @media screen and (max-width: $mobile-screen) {
+                width: 0;
+                flex-direction: column;
+                margin-top: 10vh;
+                &.menu-open {
+                    width: 200px;
+                }
+            }
+            > * {
+                text-decoration: none;
+                color: white;
+                opacity: 0.7;
+                margin-left: 50px;
+                @media screen and (max-width: $mobile-screen) {
+                    margin: 0 auto;
+                    margin-bottom: 50px;
+                    font-size: 1.4rem;
+                }
+            }
+            .active {
+                opacity: 1;
+                padding-bottom: 3px;
+                border-bottom: 3px solid $primary-clr;
+            }
         }
     }
 }

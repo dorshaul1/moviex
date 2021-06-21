@@ -1,36 +1,54 @@
 @import "../../style/setup/variables";
+@import "../../style/setup/mixins";
 
 .homePage {
     text-align: left;
+    @media screen and (max-width: $tablet-screen) {
+        overflow: hidden;
+    }
     .homePage-container {
         width: 100%;
         .diff-color {
             color: $primary-clr;
         }
-        
+
         .movie-font {
             font-family: movie;
             font-weight: 72;
         }
         .hero-container {
+            padding: 0 80px;
             width: 100%;
             height: 90vh;
             background: url(../../assets/images/background/wave.svg) no-repeat;
             background-position: bottom;
             background-size: 100%;
+            @media screen and (max-width: $tablet-screen) {
+                flex-direction: column;
+            }
             .hero-text-container {
                 width: 500px;
                 margin-right: 50px;
-                // width: 100%;
+                // padding: 0 80px;
+                @media screen and (max-width: $tablet-screen) {
+                    margin: 20vh 0 10vh 0;
+                    width: 100%;
+                }
             }
             h2 {
                 font-size: 50px;
+                @media screen and (max-width: $tablet-screen) {
+                    font-size: 40px;
+                }
+                @media screen and (max-width: $mobile-screen) {
+                    font-size: 35px;
+                }
             }
             img {
                 width: 350px;
             }
         }
-
+        
         .lets-start-btn {
             width: 250px;
             margin-top: 60px;
@@ -41,6 +59,9 @@
             background-color: transparent;
             border-radius: 30px;
             cursor: pointer;
+            @media screen and (max-width: $mobile-screen) {
+                width: 200px;
+            }
             &:hover {
                 color: $primary-clr-hover;
                 border: 2px solid $primary-clr-hover;

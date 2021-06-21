@@ -5,7 +5,7 @@ export const MoviePreview = ({ movie }) => {
     let history = useHistory();
 
     const handleClick = () => {
-        history.push(`/details/${movie.id}`)
+        history.push(`/movie/${movie.id}`)
     }
     return (
         <div onClick={handleClick} className="moviePreview">

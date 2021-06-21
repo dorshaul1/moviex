@@ -2,6 +2,9 @@
 
 .searchResults {
     padding: 30px 80px;
+    @media screen and (max-width: $tablet-screen) {
+        padding: 30px 20px;
+    }
     .movie-results-container {
         .movie-preview {
             cursor: pointer;
@@ -23,10 +26,17 @@
                 height: 100%;
                 h2{
                     margin-bottom: 10px;
+                    @media screen and (max-width: $mobile-screen) {
+                        font-size: 1.4rem;
+                        margin-bottom: 5px;
+                    }
                 }
                 p{
                     width: 80%;
                     font-weight: 300;
+                    @media screen and (max-width: $tablet-screen) {
+                        width: 100%;
+                    }
                     // justify-self: flex-end;
                 }
                 .date{

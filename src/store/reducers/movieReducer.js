@@ -1,17 +1,15 @@
 const INITIAL_STATE = {
   movies: [],
   currMovie: null,
+  currActor: null,
   popularMovies: null,
   upcomingrMovies: null,
   moviesResults:null
 }
 
 export function movieReducer(state = INITIAL_STATE, action) {
-  // console.log('upcomingMovie:', state.upcomingMovie)
-
   switch (action.type) {
     case 'SET_MOVIES':
-      //   console.log('action', action)
       return {
         ...state,
         movies: action.movies
@@ -41,19 +39,25 @@ export function movieReducer(state = INITIAL_STATE, action) {
       const { popularMovies } = action
       return {
         ...state,
-        popularMovies: popularMovies
+        popularMovies
       }
     case 'UPCOMING_MOVIES':
       const { upcomingrMovies } = action
       return {
         ...state,
-        upcomingrMovies: upcomingrMovies
+        upcomingrMovies
       }
     case 'SEARCH_MOVIES':
       const { moviesResults } = action
       return {
         ...state,
-        moviesResults: moviesResults
+        moviesResults
+      }
+    case 'SET_ACTOR':
+      const { currActor } = action
+      return {
+        ...state,
+        currActor
       }
       default:
         return state

@@ -1,0 +1,50 @@
+@import "../../style/setup/variables";
+
+.actorDetail {
+    text-align: left;
+    padding: 30px 80px;
+    img {
+        margin-right: 60px;
+        height: 450px;
+    }
+    .default-image{
+        height: 450px;
+        width: 300px;
+        // margin-right: 60px;
+    }
+    // .actor-name{
+    //     margin: 0;
+    // }
+    .title {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.3rem;
+        color: $clr3;
+        margin: 40px 0 20px 0;
+        align-self: flex-start;
+    }
+    .actor-title-container {
+        .actor-information {
+            h4 {
+                font-weight: 400;
+                .age {
+                    color: $clr3;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+    .actor-more-info {
+        .biography {
+            font-weight: 400;
+            font-size: 1rem;
+            color: $clr4;
+        }
+        .read-more {
+            color: $primary-clr;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+}

@@ -2,14 +2,16 @@
 .searchMovie {
     margin: 50px auto;
     position: relative;
-    // justify-self: center;
     width: 700px;
     height: 40px;
     background-color: white;
+    
+    @media screen and (max-width: $large-screen) {
+        width: 85%;
+    }
     border-radius: 30px;
-    // padding: ;
     .main-input {
-        width: 600px;
+        max-width: 600px;
         height: 100%;
         border-radius: 30px;
         border: none;

@@ -11,9 +11,9 @@ export function loadMovies(filterBy) {
   }
 }
 
-export function getMovieById(movieId, isNull = false) {
+export function getMovieById(movieId = false) {
   return async dispatch => {
-    const movie = isNull ? null : await movieService.getCurrMovieById(movieId)
+    const movie = movieId ? await movieService.getCurrMovieById(movieId) : null
     dispatch({ type: 'SET_MOVIE', movie })
   }
 }
@@ -48,11 +48,17 @@ export function getUpcomingMovie() {
   }
 }
 
-export function searchMovie(movie, isNull = false) {
+export function searchMovie(movie = false) {
   return async dispatch => {
-    const moviesResults = isNull ? null : await movieService.getMoviesBySearch(movie)
-    // console.log('moviesResults:', moviesResults)
-    // console.log('moviesResults:', moviesResults)
+    const moviesResults = movie ? await movieService.getMoviesBySearch(movie) : null
     dispatch({ type: 'SEARCH_MOVIES', moviesResults })
+  }
+}
+
+export function getActorDetail(actorId) {
+  return async dispatch => {
+    const currActor = actorId ? await movieService.getActorDetails(actorId) : null
+    console.log('currActor:', currActor)
+    dispatch({ type: 'SET_ACTOR', currActor })
   }
 }

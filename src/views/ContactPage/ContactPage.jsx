@@ -15,7 +15,6 @@ export const ContactPage = () => {
   useEffect(async () => {
     dispatch(loadContacts(filterBy))
     setContacts(contactsToShow)
-    // console.log('contacts:', contacts)
     return () => {
     }
   }, [filterBy])

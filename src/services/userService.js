@@ -25,5 +25,4 @@ function getEmptyUser(){
 function updateUserMove(move) {
     loggedInUser.moves.push(move)
     loggedInUser.coins -= move.amount
-    // console.log('loggedInUser.move:', loggedInUser.moves)
 }
