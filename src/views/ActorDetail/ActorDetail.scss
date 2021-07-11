@@ -3,9 +3,22 @@
 .actorDetail {
     text-align: left;
     padding: 30px 80px;
+    @media screen and (max-width: $tablet-screen) {
+        padding: 0 20px;
+    }
     img {
         margin-right: 60px;
         height: 450px;
+        @media screen and (max-width: $large-screen) {
+            height: 400px;
+        }
+        @media screen and (max-width: $tablet-screen) {
+            height: 350px;
+        }
+        @media screen and (max-width: $mobile-screen) {
+            width: 233px;
+            margin-bottom: 20px;
+        }
     }
     .default-image{
         height: 450px;
@@ -23,9 +36,24 @@
         color: $clr3;
         margin: 40px 0 20px 0;
         align-self: flex-start;
+        @media screen and (max-width: $large-screen) {
+            font-size: 1rem;
+        }
     }
     .actor-title-container {
+        @media screen and (max-width: $mobile-screen) {
+            flex-direction: column;
+        }
         .actor-information {
+            h1{
+                
+                @media screen and (max-width: $large-screen) {
+                    font-size: 1.8rem;
+                }
+                @media screen and (max-width: $tablet-screen) {
+                    font-size: 1.6rem;
+                }
+            }
             h4 {
                 font-weight: 400;
                 .age {

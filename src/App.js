@@ -8,6 +8,7 @@ import { ActorDetail } from './views/ActorDetail/ActorDetail';
 // import { ContactPage } from './views/ContactPage/ContactPage';
 import { Explore } from './views/Explore/Explore';
 import { HomePage } from './views/HomePage/HomePage';
+import { profilePage } from './views/profilePage/profilePage';
 import { SearchResults } from './views/SearchResults/SearchResults';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route component={MovieDetail} path="/movie/:movieId" />
           <Route component={ActorDetail} path="/actor/:actorId" />
           <Route component={Explore} path="/explore" />
-          {/* <Route component={ContactPage} path="/contact" /> */}
+          <Route component={profilePage} path="/profile" />
           <Route component={HomePage} path="/" />
         </Switch>
       </Router>

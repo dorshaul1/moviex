@@ -1,0 +1,1 @@
+export { profilePage } from './profilePage'

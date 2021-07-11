@@ -65,10 +65,12 @@
                     padding: 0;
                 }
                 .movie-header {
+                    position: relative;
                     @media screen and (max-width: $mobile-screen) {
                         position: absolute;
                         left: 20px;
                         top: 0;
+                        width: 90%;
                         // margin: 0;
                     }
                     h1 {
@@ -90,6 +92,19 @@
                         .genre {
                             margin-right: 7px;
                             font-weight: 400;
+                        }
+                    }
+                    .fav-btn{
+                        position: absolute;
+                        right: 0;
+                        // top: 0;
+                        font-size: 2rem;
+                        color: $clr3;
+                        cursor: pointer;
+                        user-select: none;
+
+                        &.favorite{
+                            color: $primary-clr;
                         }
                     }
                 }

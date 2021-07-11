@@ -1,20 +1,20 @@
 export const userService = {
     getUser,
     getEmptyUser,
-    updateUserMove
+    toggleFavMovie,
+    checkIfMovieFav
 }
 
 const loggedInUser = {
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: []
+    name: "Dor Shaul",
+    favMovies: [508943, 337404]
 }
 
 function getUser() {
     return loggedInUser
 }
 
-function getEmptyUser(){
+function getEmptyUser() {
     return {
         fullname: '',
         username: '',
@@ -22,7 +22,11 @@ function getEmptyUser(){
     }
 }
 
-function updateUserMove(move) {
-    loggedInUser.moves.push(move)
-    loggedInUser.coins -= move.amount
+function toggleFavMovie(movieId) {
+    const movieIdx = loggedInUser.favMovies.findIndex(id => id === movieId)
+    movieIdx === -1 ? loggedInUser.favMovies.unshift(movieId) : loggedInUser.favMovies.splice(movieIdx, 1);
+}
+
+function checkIfMovieFav(movieId) {
+    return loggedInUser.favMovies.includes(movieId)
 }

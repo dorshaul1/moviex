@@ -1,6 +1,4 @@
-
-
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './MovieDetail.scss'
 import defaultImg from '../../assets/images/not-found.png'
 import ReactPlayer from 'react-player'
@@ -9,12 +7,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getMovieById } from '../../store/actions/movieAction'
 import loader from '../../assets/images/Spinner.svg'
 import { useHistory } from 'react-router'
+import { userService } from '../../services/userService'
 
 
 export const MovieDetail = (props) => {
     const state = useSelector(state => state.movieReducer)
     const dispatch = useDispatch()
     let history = useHistory();
+    const [isMovieFav, setIsMovieFav] = useState(false)
 
     useEffect(() => {
         dispatch(getMovieById(props.match.params.movieId))
@@ -24,14 +24,28 @@ export const MovieDetail = (props) => {
         }
     }, [props.match.params.movieId])
 
+    useEffect(() => {
+        state.currMovie && isFavInitial()
+    }, [state.currMovie])
+
+
+    const isFavInitial = () => {
+        setIsMovieFav(userService.checkIfMovieFav(state.currMovie.id))
+    }
+
     const findJobType = (job) => {
         return movie.crew.filter((c) => c.job === job)
     }
 
     const onClickActor = (actorId) => {
         history.push(`/actor/${actorId}`)
-
     }
+
+    const toggleFav = () => {
+        setIsMovieFav(!isMovieFav)
+        userService.toggleFavMovie(state.currMovie.id)
+    }
+
     const movie = state.currMovie
     return (
         <div className="movieDetail flex column align-center">
@@ -42,6 +56,7 @@ export const MovieDetail = (props) => {
                         <img className="movieImage" src={movie.image} alt="" />
                         <div className="movie-information-container">
                             <div className="movie-header">
+                                <div onClick={toggleFav} className={`fav-btn ${isMovieFav ? 'favorite' : ''}`}>❤</div>
                                 <h1 className="movie-titie">{movie.title}<span className="movie-date">({movie.release_date.split('-')[0]})</span></h1>
                                 <div className="subtitle flex">
                                     {movie.genres.map((genre) => <h5 className="genre" key={genre.id}>{genre.name}</h5>)}
@@ -76,7 +91,7 @@ export const MovieDetail = (props) => {
                     <div className="actors-container flex ">
                         {movie.actors.map((actor) =>
                             <div key={actor.id} onClick={() => onClickActor(actor.id)} className="actor-preview flex column ">
-                                {actor.profile_path ? <img src={actor.image} alt=""/> : <img className="default-image" src={defaultImg} alt=""/>}
+                                {actor.profile_path ? <img src={actor.image} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
                                 <div className="actor-information">
 
                                     <h2>{actor.character}</h2>
@@ -85,12 +100,11 @@ export const MovieDetail = (props) => {
                             </div>
                         )}
                     </div>
-                    {console.log(movie.production_companies)}
                     <div className="movie-production flex column">
                         <h1 className="title">Production </h1>
                         {movie.production_companies.map((company) => {
                             return <div key={company.id} className="company flex column">
-                                {company.logo_path ? <img src={company.logo_path} alt=""/> : <h6>{company.name}</h6>}
+                                {company.logo_path ? <img src={company.logo_path} alt="" /> : <h6>{company.name}</h6>}
                             </div>
                         })}
                     </div>

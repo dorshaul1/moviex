@@ -16,8 +16,9 @@ export const AppHeader = () => {
             <img className="menu-btn" src={menu} onClick={toggleMenu} alt=""/>
             <nav className={isMenuOpen ? "menu-open" : ""}>
                 <ul className="flex clean-list">
-                    <NavLink exact activeClassName="active" to='/'> <li>Home</li></NavLink>
+                    {/* <NavLink exact activeClassName="active" to='/profile'><li>Profile</li></NavLink> */}
                     <NavLink exact activeClassName="active" to='/explore'><li>Explore</li></NavLink>
+                    <NavLink exact activeClassName="active" to='/'> <li>Home</li></NavLink>
                 </ul>
             </nav>
         </div>
