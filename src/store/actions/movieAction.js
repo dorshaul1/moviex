@@ -51,6 +51,7 @@ export function getUpcomingMovie() {
 export function searchMovie(movie = false) {
   return async dispatch => {
     const moviesResults = movie ? await movieService.getMoviesBySearch(movie) : null
+    console.log('moviesResults:', moviesResults)
     dispatch({ type: 'SEARCH_MOVIES', moviesResults })
   }
 }

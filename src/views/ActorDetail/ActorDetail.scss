@@ -6,9 +6,10 @@
     @media screen and (max-width: $tablet-screen) {
         padding: 0 20px;
     }
-    img {
+    .actor-img {
         margin-right: 60px;
         height: 450px;
+        // margin-top: 20px;
         @media screen and (max-width: $large-screen) {
             height: 400px;
         }
@@ -17,7 +18,8 @@
         }
         @media screen and (max-width: $mobile-screen) {
             width: 233px;
-            margin-bottom: 20px;
+            margin: 20px auto 40px auto;
+            // margin-bottom: 40px;
         }
     }
     .default-image{
@@ -26,7 +28,7 @@
         // margin-right: 60px;
     }
     // .actor-name{
-    //     margin: 0;
+    //     margin: 20px 0;
     // }
     .title {
         text-align: left;
@@ -34,7 +36,7 @@
         font-weight: 400;
         font-size: 1.3rem;
         color: $clr3;
-        margin: 40px 0 20px 0;
+        margin: 30px 0 10px 0;
         align-self: flex-start;
         @media screen and (max-width: $large-screen) {
             font-size: 1rem;
@@ -46,7 +48,6 @@
         }
         .actor-information {
             h1{
-                
                 @media screen and (max-width: $large-screen) {
                     font-size: 1.8rem;
                 }
@@ -74,5 +75,8 @@
             margin-left: 10px;
             cursor: pointer;
         }
+        // .more-movies{
+            // height: 30px;
+        // }
     }
 }

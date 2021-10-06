@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getActorDetail } from '../../store/actions/movieAction'
 import './ActorDetail.scss'
 import defaultImg from '../../assets/images/not-found.png'
+import { MovieList } from '../../cmps/MovieList/MovieList'
 
 export const ActorDetail = (props) => {
     const state = useSelector(state => state.movieReducer)
@@ -19,7 +20,7 @@ export const ActorDetail = (props) => {
 
     const showLimitedText = (text) => {
         const worldsCount = text.split(' ')
-        return isTextLimited ? worldsCount.splice(0, 150).join(' ') : text
+        return isTextLimited ? worldsCount.splice(0, 100).join(' ') : text
     }
 
     const onReadMore = () => {
@@ -53,7 +54,7 @@ export const ActorDetail = (props) => {
         currActor && <div className="actorDetail flex column">
             <div className="actor-title-container flex">
 
-                {currActor.profile_path ? <img src={currActor.image} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
+                {currActor.profile_path ? <img className="actor-img" src={currActor.image} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
                 <div className="actor-information">
 
                     <h1 className="actor-name">{currActor.name}</h1>
@@ -70,8 +71,10 @@ export const ActorDetail = (props) => {
             <div className="actor-more-info">
                 <h2 className="title">Biography</h2>
                 <p className="biography">{showLimitedText(currActor.biography)}
-                    {currActor.biography.split(' ').length > 150 && <span onClick={onReadMore} className="read-more">{isTextLimited ? "Read More→" : "Read Less←"}</span>}
+                    {currActor.biography.split(' ').length > 100 && <span onClick={onReadMore} className="read-more">{isTextLimited ? "Read More→" : "Read Less←"}</span>}
                 </p>
+                <h2 className="title">More Movies</h2>
+                < MovieList className="more-movies" movies={currActor.movies} />
             </div>
         </div>
     )

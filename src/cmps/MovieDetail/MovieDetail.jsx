@@ -41,10 +41,10 @@ export const MovieDetail = (props) => {
         history.push(`/actor/${actorId}`)
     }
 
-    const toggleFav = () => {
-        setIsMovieFav(!isMovieFav)
-        userService.toggleFavMovie(state.currMovie.id)
-    }
+    // const toggleFav = () => {
+    //     setIsMovieFav(!isMovieFav)
+    //     userService.toggleFavMovie(state.currMovie.id)
+    // }
 
     const movie = state.currMovie
     return (
@@ -56,7 +56,7 @@ export const MovieDetail = (props) => {
                         <img className="movieImage" src={movie.image} alt="" />
                         <div className="movie-information-container">
                             <div className="movie-header">
-                                <div onClick={toggleFav} className={`fav-btn ${isMovieFav ? 'favorite' : ''}`}>❤</div>
+                                {/* <div onClick={toggleFav} className={`fav-btn ${isMovieFav ? 'favorite' : ''}`}>❤</div> */}
                                 <h1 className="movie-titie">{movie.title}<span className="movie-date">({movie.release_date.split('-')[0]})</span></h1>
                                 <div className="subtitle flex">
                                     {movie.genres.map((genre) => <h5 className="genre" key={genre.id}>{genre.name}</h5>)}

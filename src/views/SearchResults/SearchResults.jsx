@@ -14,7 +14,7 @@ export const SearchResults = (props) => {
     let history = useHistory();
 
     const handleClick = (movie) => {
-        history.push(`/movie/${movie.id}`)
+        movie.isActor?history.push(`/actor/${movie.id}`):history.push(`/movie/${movie.id}`)
     }
     useEffect(() => {
         dispatch(searchMovie(props.match.params.search))
@@ -34,14 +34,14 @@ export const SearchResults = (props) => {
                 <section className="movie-results-container">
                     {state.moviesResults.map((movie, idx) => {
                         return <div onClick={() => handleClick(movie)} key={idx} className="movie-preview flex">
-                            {movie.poster_path ? <img src={movie.image} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
+                            {movie.poster_path || movie.profile_path ? <img src={movie.image} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
                             <div className="movie-details flex column space-between">
                                 <div>
 
-                                    <h2>{movie.title}</h2>
-                                    <h4 className="date">{formatedDate(movie.release_date)}</h4>
+                                    {movie.isActor ? <h2>{movie.name}</h2> : <h2>{movie.title}</h2>}
+                                    {!movie.isActor && <h4 className="date">{formatedDate(movie.release_date)}</h4>}
                                 </div>
-                                <p>{movie.overview.length > 200 ? movie.overview.substring(0, 200) + '...' : movie.overview}</p>
+                                {!movie.isActor && <p>{movie.overview.length > 200 ? movie.overview.substring(0, 200) + '...' : movie.overview}</p>}
                             </div>
                         </div>
                     })}

@@ -1,5 +1,6 @@
 import './MoviePreview.scss'
 import { useHistory } from 'react-router';
+import defaultImg from '../../assets/images/not-found.png'
 
 export const MoviePreview = ({ movie }) => {
     let history = useHistory();
@@ -9,7 +10,7 @@ export const MoviePreview = ({ movie }) => {
     }
     return (
         <div onClick={handleClick} className="moviePreview">
-            <img src={(movie.image)} alt="" />
+            {movie.image ? <img src={(movie.image)} alt="" /> : <img className="default-image" src={defaultImg} alt="" />}
             <h2>{movie.title}</h2>
         </div>
     )
