@@ -51,7 +51,6 @@ export function getUpcomingMovie() {
 export function searchMovie(movie = false) {
   return async dispatch => {
     const moviesResults = movie ? await movieService.getMoviesBySearch(movie) : null
-    console.log('moviesResults:', moviesResults)
     dispatch({ type: 'SEARCH_MOVIES', moviesResults })
   }
 }
@@ -59,7 +58,6 @@ export function searchMovie(movie = false) {
 export function getActorDetail(actorId) {
   return async dispatch => {
     const currActor = actorId ? await movieService.getActorDetails(actorId) : null
-    console.log('currActor:', currActor)
     dispatch({ type: 'SET_ACTOR', currActor })
   }
 }
