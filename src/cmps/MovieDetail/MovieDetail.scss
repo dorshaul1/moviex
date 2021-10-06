@@ -42,6 +42,7 @@
                     // height: 80%;
                     flex-direction: column;
                     padding: 50px 20px;
+                    justify-content: space-evenly;
                 }
             }
             .movieImage {
@@ -50,7 +51,7 @@
                     height: 80%;
                 }
                 @media screen and (max-width: $mobile-screen) {
-                    margin-top: 10px;
+                    margin-top: 20px;
                     height: 50%;
                     // height: unset;
                     // width: 50%;
@@ -114,6 +115,7 @@
                     font-size: 1rem;
                     text-transform: uppercase;
                     font-weight: 400;
+                    color: $clr3;
                     @media screen and (max-width: $tablet-screen) {
                         margin: 15px 0 15px 0;
                         font-size: 0.9rem;
